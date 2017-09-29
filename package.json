@@ -35,5 +35,10 @@
     "tslint-microsoft-contrib": "5.0.1",
     "typedoc": "^0.8.0",
     "typescript": "^2.1.6"
+  },
+  "dependencies": {
+    "@types/config": "0.0.33",
+    "config": "^1.26.2",
+    "vso-node-api": "^6.2.8-preview"
   }
 }
