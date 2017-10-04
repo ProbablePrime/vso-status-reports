@@ -11,10 +11,10 @@ export interface IConfigItem {
     id: string;
 }
 
+const statusMap = config.get<IStatusMapper>('statusMap');
+
 const PROJECT = config.get<IConfigItem>('project');
 const TEAM = config.get<IConfigItem>('team');
-
-console.log(URI, TOKEN);
 
 export async function getWebApi(): Promise<vm.WebApi> {
     return new Promise<vm.WebApi>(async(resolve: Function, reject: Function): Promise<void> => {
@@ -37,4 +37,26 @@ export function getTeamContext(): CoreInterfaces.TeamContext {
         team: TEAM.name,
         teamId: TEAM.id,
     };
+}
+
+export const statusColorField = config.get<string>('statusColorField');
+
+export type StatusColor = 'red' | 'yellow' | 'green';
+
+export interface IStatusMapper {
+    [key: string]: StatusColor;
+}
+
+export function mapColor(input: string): StatusColor {
+    if (statusMap && statusMap[input]) {
+        return statusMap[input];
+    }
+
+    return 'yellow';
+}
+
+export function arrayMax(arr: object[], key: string) {
+  return arr.reduce((p: object , v: object) => {
+    return ( p[key] > v[key] ? p : v );
+  });
 }

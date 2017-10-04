@@ -1,4 +1,16 @@
 {
     "token":"",
-    "uri":""
+    "team": {
+        "name": "Default Team",
+        "id": ""
+    },
+    "project": {
+        "name": "My Awesome Project",
+        "id": ""
+    },
+    "uri":"https://myinstance.visualstudio.com",
+    "queries": [
+        "abc123",
+        "fobar456"
+    ]
 }
