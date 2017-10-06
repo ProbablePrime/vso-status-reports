@@ -1,0 +1,11 @@
+
+{{#each reports}}
+## {{title}}
+
+| Item | Owners | Status | Comments |
+|------|--------|--------|----------|
+{{#each items}}
+|[{{title}}]({{link}})|{{{owners}}}|{{statusColor}}|{{{comment}}}|
+{{/each}}
+
+{{/each}}
